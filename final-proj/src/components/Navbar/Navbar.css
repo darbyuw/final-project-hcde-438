@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     background-color: #28666E;
     color: white;
     font-family: 'Inria Serif', serif;
@@ -10,7 +10,7 @@
   
   .navbar-brand a {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: normal;
     color: white;
     text-decoration: none;
     align-items: center;
@@ -20,6 +20,19 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+  }
+
+  .img-crop {
+    margin-bottom: -20px;
+    overflow: hidden;
+    /* background-color: grey; */
+  }
+  .img-crop img {
+    width: 100px;
+    height: 100px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: -20px;
   }
   
   .navbar-item {

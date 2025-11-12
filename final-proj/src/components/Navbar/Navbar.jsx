@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { logoutUser } from "../../services/auth";
 import "./Navbar.css";
+import fishImg from "../../assets/Fish.png";
 
 
 const Navbar = () => {
@@ -19,7 +20,9 @@ const Navbar = () => {
       <div className="navbar-menu">
         {currentUser ? (
           <>
-            <img src="../assets/Fish.png"></img>
+            <div className="img-crop">
+              <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
+            </div>
             <Link to="/dashboard" className="navbar-item">Game Progress</Link>
             {/* <Link to="/profile" className="navbar-item">Profile</Link> */}
             <button onClick={handleLogout} className="navbar-button">Logout</button>
