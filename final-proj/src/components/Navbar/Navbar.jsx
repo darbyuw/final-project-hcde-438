@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { logoutUser } from "../../services/auth";
 import "./Navbar.css";
 
+
 const Navbar = () => {
   const { currentUser } = useAuth();
 

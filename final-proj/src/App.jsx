@@ -38,12 +38,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/NavBar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Profile from "./pages/Profile/Profile";
+// import Profile from "./pages/Profile/Profile";
 import "./App.css";
 
 function App() {
@@ -65,14 +65,14 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
-              <Route 
+              {/* <Route 
                 path="/profile" 
                 element={
                   <ProtectedRoute>
                     <Profile />
                   </ProtectedRoute>
                 } 
-              />
+              /> */}
             </Routes>
           </main>
         </div>
