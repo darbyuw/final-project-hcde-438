@@ -3,8 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #4a55a2;
+    background-color: #28666E;
     color: white;
+    font-family: 'Inria Serif', serif;
   }
   
   .navbar-brand a {
@@ -12,6 +13,7 @@
     font-weight: bold;
     color: white;
     text-decoration: none;
+    align-items: center;
   }
   
   .navbar-menu {

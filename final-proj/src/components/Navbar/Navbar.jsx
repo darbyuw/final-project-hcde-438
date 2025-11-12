@@ -14,13 +14,14 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Age Calculator</Link>
+        <Link to="/">A Cat's Journey</Link>
       </div>
       <div className="navbar-menu">
         {currentUser ? (
           <>
-            <Link to="/dashboard" className="navbar-item">Dashboard</Link>
-            <Link to="/profile" className="navbar-item">Profile</Link>
+            <img src="../assets/Fish.png"></img>
+            <Link to="/dashboard" className="navbar-item">Game Progress</Link>
+            {/* <Link to="/profile" className="navbar-item">Profile</Link> */}
             <button onClick={handleLogout} className="navbar-button">Logout</button>
           </>
         ) : (
