@@ -11,12 +11,29 @@ const Questions = () => {
 //     setRefreshTrigger((prev) => prev + 1);
 //   };
 
+
+const [quoteData, setQuoteData] = useState(null);
+  useEffect(() =>{
+    const fetchQuote = async () => {
+      try {
+        const response = await fetch("https://zenquotes.io/api/quotes/");
+        const data = await response.json();
+        setQuoteData(data[0]);
+      } 
+      catch (error) {
+        console.log("Error fetching quote:", error.message);
+      }
+    }
+    fetchQuote();
+  })
+
   return (
-    <div className="dashboard-container">
-      <h1>Your Dashboard</h1>
-      <div className="dashboard-content">
+    <div className="questions-container">
+      <h1>Next question here</h1>
+      <div className="questions-content">
         {/* <AgeCalculator onCalculate={handleCalculate} />
         <CalculationHistory refreshTrigger={refreshTrigger} /> */}
+        
       </div>
     </div>
   );
