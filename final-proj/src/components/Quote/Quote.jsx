@@ -24,7 +24,7 @@ const [quoteData, setQuoteData] = useState(null);
     fetchQuote();
   }, []);
 
- // TODO: add this to the questions page and render the questions page after logging in
+  // TODO: style the quote component to fit inside the correct div box
 return (
     <div className="quote-content">
         {quoteData && (
