@@ -8,10 +8,10 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-content">
-        <h1>Age Calculator App</h1>
+        <h1>A Cat's Journey</h1>
         <p className="home-description">
-          Calculate your age in years, months, and days with our simple tool.
-          Create an account to save your calculation history.
+          Guide your cat towards fish with this choose-your-own adventure game. 
+          Create an account to save your game progress.
         </p>
         
         <div className="cta-buttons">

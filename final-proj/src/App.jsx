@@ -43,6 +43,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Quote from "./components/Quote/Quote";
 // import Profile from "./pages/Profile/Profile";
 import "./App.css";
 
@@ -61,7 +62,7 @@ function App() {
                 path="/dashboard" 
                 element={
                   <ProtectedRoute>
-                    <Dashboard />
+                    <Quote />
                   </ProtectedRoute>
                 } 
               />
