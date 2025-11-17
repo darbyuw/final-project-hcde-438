@@ -7,22 +7,37 @@ import apiKey from "../../secrets.jsx";
 const Quote = () => {
 
 const [quoteData, setQuoteData] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
   useEffect(() =>{
     const fetchQuote = async () => {
+
       try {
         const response = await fetch("https://api.api-ninjas.com/v2/quotes", {
           method: "GET",
           headers: {'X-Api-Key': apiKey}
       });
+      // add lines here from code in class ????
         const data = await response.json();
         setQuoteData(data[0]);
       } 
       catch (error) {
         console.log("Error fetching quote:", error.message);
+      } finally {
+        setLoading(false);
       }
     };
     fetchQuote();
   }, []);
+
+  // change the style of this loading !!
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
 return (
     <div className="quote-content">

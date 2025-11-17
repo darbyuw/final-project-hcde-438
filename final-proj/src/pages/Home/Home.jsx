@@ -16,8 +16,8 @@ const Home = () => {
         
         <div className="cta-buttons">
           {currentUser ? (
-            <Link to="/dashboard" className="cta-button primary">
-              Go to Dashboard
+            <Link to="/questions" className="cta-button primary">
+              Continue Journey
             </Link>
           ) : (
             <>
