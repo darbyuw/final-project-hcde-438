@@ -19,6 +19,9 @@ const [error, setError] = useState(null);
           headers: {'X-Api-Key': apiKey}
       });
       // add lines here from code in class ????
+      if (!response.ok) {
+        throw new Error(`error status: ${response.status}`);
+      }
         const data = await response.json();
         setQuoteData(data[0]);
       } 
@@ -35,6 +38,7 @@ const [error, setError] = useState(null);
   if (loading) {
     return <div>Loading...</div>;
   }
+  // style this error message too !!
   if (error) {
     return <div>Error: {error}</div>;
   }

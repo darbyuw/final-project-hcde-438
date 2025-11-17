@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { logoutUser } from "../../services/auth";
 import "./Navbar.css";
 import fishImg from "../../assets/Fish.png";
+import catImg from "../../assets/cat_logo.png";
 
 
 const Navbar = () => {
@@ -15,6 +16,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
+        <div className="img-crop">
+          <img src={catImg} alt="A sketch of a cat's face looking forward" />
+        </div>
         <Link to="/">A Cat's Journey</Link>
       </div>
       <div className="navbar-menu">

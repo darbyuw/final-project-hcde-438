@@ -1,5 +1,4 @@
 
-
 const textNotes = [
     {
         id: 1,
@@ -55,7 +54,8 @@ const textNotes = [
                 text: "Go back into the kitchen.",
                 nextText: 5
             }
-        ]
+        ],
+        fish: 1
     },
     {
         id: 5,
@@ -93,7 +93,8 @@ const textNotes = [
                 text: "Walk down the street towards the pond",
                 nextText: 11,
             },
-        ]
+        ],
+        fish: 1
     },
     {
         id: 8,
@@ -103,7 +104,8 @@ const textNotes = [
                 text: "Go back upstairs to the kitchen.",
                 nextText: 5
             }
-        ]
+        ],
+        fish: 1
     },
     {
         id: 9,
