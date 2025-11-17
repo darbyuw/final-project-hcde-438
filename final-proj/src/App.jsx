@@ -44,6 +44,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Quote from "./components/Quote/Quote";
+import Options from "./components/Options/Options";
 // import Profile from "./pages/Profile/Profile";
 import "./App.css";
 
@@ -63,6 +64,7 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Quote />
+                    <Options />
                   </ProtectedRoute>
                 } 
               />

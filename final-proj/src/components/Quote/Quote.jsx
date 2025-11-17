@@ -24,7 +24,6 @@ const [quoteData, setQuoteData] = useState(null);
     fetchQuote();
   }, []);
 
-  // TODO: style the quote component to fit inside the correct div box
 return (
     <div className="quote-content">
         {quoteData && (

@@ -9,7 +9,15 @@ const Options = () => {
 
 return (    
     <div className="options-content">
-        <h2>Options Component</h2>
+        <div className="question-section">
+            <p>Question goes here</p>
+        </div>
+        <div className="options-section">
+            <div className="option-item">Option 1</div>
+            <div className="option-item">Option 2</div>
+            <div className="option-item">Option 3</div>
+            <div className="option-item">Option 4</div>
+        </div>
     </div>
     );
 };
