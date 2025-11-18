@@ -109,11 +109,60 @@ const textNotes = [
     },
     {
         id: 9,
-        text: ""
+        text: "Jumping up onto the stovetop, you see a fish simmering in a pan. You snag it with a paw and eat it. Yum! After your snack, you notice the back door is open. Where would you like to go next?",
+        options: [
+            {
+                text: "Go outside to the backyard.",
+                nextText: 3
+            }
+        ],
+        fish: 1
+    },
+    {
+        id: 10,
+        text: "You hop onto the counter and paw at the cabinet until it opens. Inside your senses immedietly alert you to an amazing smell. You bat a small bag out of the cabinet and it bursts open on the floor. Catnip! You roll around in it happily for a while. Wait, what were you looking for again? Oh well, time for a nap.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 11,
+        text: "You walk down the alley towards the small neighborhood pond. Sundenlly, another cat rounds the corner! It looks like they are headed for the pond too. Do you want to fight them or run towards the pond?",
+        options: [
+            {
+                text: "Fight the other cat.",
+                nextText: 12
+            },
+            {
+                text: "Run to the pond.",
+                nextText: 13
+            }
+        ]
+    },
+    {
+        id: 12,
+        text: "Facing the unknown cat you stand to your fullest height and arch your back. The other cat hisses and takes a swipe at you. You lunch for their ear and suddenly you're both tumbling down the alley. After a few moments of scratching, you both stop and stare at each other before running off in opposite directions. Back at your house, you feel like you forgot something. Maybe you'll remember after a nap.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 13,
+        text: "Ignoring the other cat, you dash to the pond. The rain drizzles on your fur as you pad out onto the small wodden dock. Peering over the edge, you notice the rain brought all the fish to the top of the water! Waiting unitl the timing is right, you quickly swipe a paw into the water. Repeating this tactic you manage to grab three fish! Yum! Finally satisfied, you head home for a long nap.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1
+            }
+        ],
+        fish: 3
     }
-
-
-]
-
-
+];
+        
 export default textNotes;
