@@ -1,4 +1,4 @@
-# final-project-hcde-438
+# Final Project HCDE 438
 ## Project overview and purpose
 This web application is an Interactive Choose-Your-Own-Adventure game. It follows the journey of a cat as it searches for fish in its neighborhood. The user plays the game from the perspective of the cat. This game aims to provide joy and entertainment to people of any age. Users are able to select between multiple options at each page of the game, leading them through different questions and scenarios. The game ends when the user has found five fish, or the cat has gotten distracted in some way. There are multiple different endings depending on the path that the user chooses.
 ## Technologies used
