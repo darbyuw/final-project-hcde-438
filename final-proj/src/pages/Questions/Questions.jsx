@@ -17,6 +17,7 @@ const Questions = () => {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
     if (textNode?.fish) {
       setFishCount(fishCount + textNode.fish);
+      console.log(fishCount);
     }
     setTextNodeIndex(nextIndex);
   };
