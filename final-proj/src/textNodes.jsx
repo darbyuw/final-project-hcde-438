@@ -1,4 +1,5 @@
 
+// A tree with all the questions and options in the story
 const textNotes = [
     {
         id: 1,

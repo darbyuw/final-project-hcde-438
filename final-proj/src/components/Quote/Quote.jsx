@@ -18,15 +18,14 @@ const [error, setError] = useState(null);
           method: "GET",
           headers: {'X-Api-Key': apiKey}
       });
-      // add lines here from code in class ????
       if (!response.ok) {
         throw new Error(`error status: ${response.status}`);
       }
         const data = await response.json();
         setQuoteData(data[0]);
       } 
-      catch (error) {
-        console.log("Error fetching quote:", error.message);
+      catch (err) {
+        setError(err.message);
       } finally {
         setLoading(false);
       }
