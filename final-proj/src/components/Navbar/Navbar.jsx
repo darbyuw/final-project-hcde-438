@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <div className="img-crop">
+        <div className="img-cat">
           <img src={catImg} alt="A sketch of a cat's face looking forward" />
         </div>
         <Link to="/">A Cat's Journey</Link>

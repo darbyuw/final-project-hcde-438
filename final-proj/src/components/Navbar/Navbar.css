@@ -9,9 +9,14 @@
     font-family: 'Inria Serif', serif;
   }
   
-  .navbar-brand a {
+  .navbar-brand {
     display: flex;
     flex-direction: row;
+    align-items: center;
+  }
+
+
+  .navbar-brand a {
     font-size: 1.5rem;
     font-weight: normal;
     color: white;
@@ -28,8 +33,20 @@
   .img-crop {
     margin-bottom: -20px;
     overflow: hidden;
-    /* background-color: grey; */
   }
+
+  .img-cat {
+    margin-bottom: -10px;
+    overflow: hidden;
+  }
+  .img-cat img {
+    width: 100px;
+    height: 100px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: -20px;
+  }
+
   .img-crop img {
     width: 100px;
     height: 100px;
@@ -48,10 +65,12 @@
   
   .navbar-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+
   }
   
   .navbar-button {
-    background-color: #7895cb;
+    background-color: #28666E;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -63,4 +82,5 @@
   
   .navbar-button:hover {
     background-color: #a0bfe0;
+    cursor: pointer;
   }
