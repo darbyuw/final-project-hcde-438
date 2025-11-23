@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import "./Quote.css";
 import apiKey from "../../secrets.jsx";
 
-
 const Quote = () => {
 
 const [quoteData, setQuoteData] = useState(null);
