@@ -8,6 +8,7 @@ import Register from "./pages/Register/Register";
 // import Profile from "./pages/Profile/Profile";
 import "./App.css";
 import Questions from "./pages/Questions/Questions";
+import Gameover from "./pages/Game Over/GameOver";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
+              <Route path="/gameover" element={<Gameover />} />
               {/* <Route 
                 path="/profile" 
                 element={

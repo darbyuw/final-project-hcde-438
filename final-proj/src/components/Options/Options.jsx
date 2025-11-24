@@ -1,9 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Options.css";
 
 // description
 const Options = ({ currNode, setNewIndex, restart }) => {
+
+  const navigate = useNavigate();
 
     // // loop through all options within the current node
     // textElement.innerText = textNode.text;
@@ -41,7 +44,8 @@ const Options = ({ currNode, setNewIndex, restart }) => {
 
     const clickOption = (nextText) => {
     if (nextText === -1) {
-      restart();
+      // restart();
+      navigate("/gameover");
     } else {
       setNewIndex(nextText);
     }
@@ -51,6 +55,8 @@ const Options = ({ currNode, setNewIndex, restart }) => {
   if (!currNode) {
     return <div>Loading...</div>;
   }
+
+
 
   // I looked up the map function, it is like a for loop that returns an array
   return (    

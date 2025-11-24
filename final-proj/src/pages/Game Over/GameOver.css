@@ -1,0 +1,16 @@
+  .cta-button.primary {
+    background-color: #28666E;
+    color: white;
+  }
+
+  .gameover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 2rem; */
+    background-color: #3F2230;
+  }
+
+  .gameover-content {
+    background-color: white;
+  }

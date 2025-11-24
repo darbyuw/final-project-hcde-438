@@ -3,10 +3,17 @@ import Quote from "../../components/Quote/Quote";
 import Options from "../../components/Options/Options";
 import textNodes from "../../textNodes";
 import "./Questions.css";
+// Import Firestore functions for creating documents and generating a server timestamp.
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+// Import the initialized Firestore database instance from your configuration file.
+import { db } from '../../services/firebase.js'; 
+import { useAuth } from "../../context/AuthContext";
+
 
 const Questions = () => {
 
   // get the current index from firebase ???
+  const { currentUser } = useAuth();
 
   // set the current index
   const [textNodeIndex, setTextNodeIndex] = useState(1);
@@ -32,11 +39,13 @@ const Questions = () => {
     
     setQuoteCategory(textNode.category);
     console.log(quoteCategory);
+
+    storeProgress();
     
     setTextNodeIndex(nextIndex);
   };
 
-   // Define an asynchronous function to handle adding the users progress to firestore.
+     // Define an asynchronous function to handle adding the users progress to firestore.
   const storeProgress = async () => {
     try {
         // Create a Firestore document reference for the favorite item.
