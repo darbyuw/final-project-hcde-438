@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./Quote.css";
 import apiKey from "../../secrets.jsx";
 
-const Quote = () => {
+const Quote = (category) => {
 
 const [quoteData, setQuoteData] = useState(null);
 const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const [error, setError] = useState(null);
     const fetchQuote = async () => {
 
       try {
-        const response = await fetch("https://api.api-ninjas.com/v2/quotes", {
+        const response = await fetch("https://api.api-ninjas.com/v2/quotes?categories=" + category, {
           method: "GET",
           headers: {'X-Api-Key': apiKey}
       });

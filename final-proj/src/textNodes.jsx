@@ -13,7 +13,8 @@ const textNotes = [
                 text: "I'll stay inside.",
                 nextText: 2
             }
-        ]
+        ],
+        category: "life"
     },
     {
         id: 2,
@@ -27,7 +28,8 @@ const textNotes = [
                 text: "The kitchen.",
                 nextText: 5
             }
-        ]
+        ],
+        category: "inspirational"
     },
     {
         id: 3,
@@ -41,7 +43,8 @@ const textNotes = [
                 text: "Let's go through the fence gate to the alley instead.",
                 nextText: 7
             }
-        ]
+        ],
+        category: "freedom"
     },
     {
         id: 4,
@@ -56,7 +59,8 @@ const textNotes = [
                 nextText: 5
             }
         ],
-        fish: 1
+        fish: 1,
+        category: "success"
     },
     {
         id: 5,
@@ -70,7 +74,8 @@ const textNotes = [
                 text: "Look in the cabinet.",
                 nextText: 10
             }
-        ]
+        ],
+        category: "leadership"
     },
     {
         id: 6,
@@ -80,7 +85,8 @@ const textNotes = [
                 text: "Restart",
                 nextText: -1
             }
-        ]
+        ],
+        category: "time"
     },
     {
         id: 7,
@@ -95,7 +101,8 @@ const textNotes = [
                 nextText: 11,
             },
         ],
-        fish: 1
+        fish: 1,
+        category: "success"
     },
     {
         id: 8,
@@ -106,7 +113,8 @@ const textNotes = [
                 nextText: 5
             }
         ],
-        fish: 1
+        fish: 1,
+        category: "success"
     },
     {
         id: 9,
@@ -117,7 +125,8 @@ const textNotes = [
                 nextText: 3
             }
         ],
-        fish: 1
+        fish: 1,
+        category: "success"
     },
     {
         id: 10,
@@ -127,7 +136,8 @@ const textNotes = [
                 text: "Restart",
                 nextText: -1
             }
-        ]
+        ], 
+        category: "time"
     },
     {
         id: 11,
@@ -141,7 +151,8 @@ const textNotes = [
                 text: "Run to the pond.",
                 nextText: 13
             }
-        ]
+        ], 
+        category: "courage"
     },
     {
         id: 12,
@@ -151,7 +162,8 @@ const textNotes = [
                 text: "Restart",
                 nextText: -1
             }
-        ]
+        ], 
+        category: "freedom"
     },
     {
         id: 13,
@@ -162,7 +174,8 @@ const textNotes = [
                 nextText: -1
             }
         ],
-        fish: 3
+        fish: 3, 
+        category: "success"
     }
 ];
         
