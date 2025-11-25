@@ -12,10 +12,11 @@ import { useAuth } from "../../context/AuthContext";
 
 const Questions = () => {
 
-  // get the current index from firebase ???
+  // TODO: implement a background image change with usestate or useeffect (similar to dark/light mode from class example)
+
   const { currentUser } = useAuth();
 
-  // set the current index
+  // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
   const [fishCount, setFishCount] = useState(0);
   const [quoteCategory, setQuoteCategory] = useState(null);
@@ -40,6 +41,7 @@ const Questions = () => {
     setQuoteCategory(textNode.category);
     console.log(quoteCategory);
 
+    // store progress in firebase
     storeProgress();
     
     setTextNodeIndex(nextIndex);
