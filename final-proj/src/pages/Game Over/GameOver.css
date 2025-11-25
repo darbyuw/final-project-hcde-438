@@ -1,16 +1,29 @@
-  .cta-button.primary {
-    background-color: #28666E;
-    color: white;
-  }
-
-  .gameover-container {
+.gameover-container {
     display: flex;
     justify-content: center;
     align-items: center;
     /* padding-top: 2rem; */
     background-color: #3F2230;
-  }
+    min-height: calc(100vh - 70px);
+}
 
-  .gameover-content {
-    background-color: white;
+.gameover-content {
+  background-color: white;
+  border-radius: 8px 8px 8px 8px;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cta-button.primary {
+  background-color: #28666E;
+  color: white;
+}
+
+@media (min-width: 1024px) {
+.gameover-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
+}

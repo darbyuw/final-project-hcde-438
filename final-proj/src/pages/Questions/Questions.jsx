@@ -13,6 +13,7 @@ import { useAuth } from "../../context/AuthContext";
 const Questions = () => {
 
   // TODO: implement a background image change with usestate or useeffect (similar to dark/light mode from class example)
+  //TODO: Figure out why its only using the first qoute!!!!!!!!!
 
   const { currentUser } = useAuth();
 
@@ -38,7 +39,7 @@ const Questions = () => {
       console.log(fishCount);
     }
     
-    setQuoteCategory(textNode.category);
+    setQuoteCategory(String(textNode.category));
     console.log(quoteCategory);
 
     // store progress in firebase

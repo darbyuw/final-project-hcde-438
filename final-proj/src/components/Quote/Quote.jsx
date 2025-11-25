@@ -12,8 +12,9 @@ const [error, setError] = useState(null);
   useEffect(() =>{
     const fetchQuote = async () => {
 
+      const url = "https://api.api-ninjas.com/v2/quotes?categories=" + category.category;
       try {
-        const response = await fetch("https://api.api-ninjas.com/v2/quotes?categories=" + category, {
+        const response = await fetch(url, {
           method: "GET",
           headers: {'X-Api-Key': apiKey}
       });
