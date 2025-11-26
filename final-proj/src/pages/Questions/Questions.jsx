@@ -8,61 +8,77 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 // Import the initialized Firestore database instance from your configuration file.
 import { db } from '../../services/firebase.js'; 
 import { useAuth } from "../../context/AuthContext";
+// Import the fish count from context
+import React, { useContext } from 'react';
+import { FishCountContext } from '../../context/FishCountContext.jsx';
 
 
 const Questions = () => {
 
   // TODO: implement a background image change with usestate or useeffect (similar to dark/light mode from class example)
-  //TODO: Figure out why its only using the first qoute!!!!!!!!!
 
+  // get the current user to be able to store to their firebase
   const { currentUser } = useAuth();
+  // get the fish count useState varibale from the context
+  const { setFishCount } = useContext(FishCountContext);
+  const { fishCount } = useContext(FishCountContext);
 
+
+  //TODO: make sure that these are reset when the gameover page is restarted!!!!!!
   // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
-  const [fishCount, setFishCount] = useState(0);
+  // const [fishCount, setFishCount] = useState(0);
   const [quoteCategory, setQuoteCategory] = useState(null);
 
   // set the inital node
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-  // console.log(textNode)
+  // at the start when it is null, we want to set the quote category. 
   if (quoteCategory === null) {
-    console.log(textNode.category)
     setQuoteCategory(textNode.category);
-    console.log(quoteCategory);
   }
 
   // set the current node (this function is passed into the options component)
+  // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node tree. 
+  // It checks if the current node has fish and updates the fish count context. Then it sets the quote category to the current text node to the 
   const getCurrentNode = (nextIndex) => {
-    const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-    if (textNode?.fish) {
-      setFishCount(fishCount + textNode.fish);
-      console.log(fishCount);
-    }
+    let textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
     
-    setQuoteCategory(String(textNode.category));
-    console.log(quoteCategory);
+    // // this might be setting it to the previous category not the next category
+    // setQuoteCategory(String(textNode.category));
+    // // console.log(quoteCategory);
 
     // store progress in firebase
-    storeProgress();
+    storeProgress(nextIndex);
     
     setTextNodeIndex(nextIndex);
+    // set textNode to equal the next textnode that we are settting it to. now this points to the current text Node:
+    textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
+    // now set the qutoe category to the category of the current textnode that we just set:
+    setQuoteCategory(String(textNode.category));
+    // WHY IS THIS NOT UPDATING TO THE NEXT CATeGoRY iT STILL GIVES THe VeRY FIRST CATEGORY
+    console.log("this is quote category of the freshly set node: " + quoteCategory);
+
   };
 
      // Define an asynchronous function to handle adding the users progress to firestore.
-  const storeProgress = async () => {
+  const storeProgress = async (indexToStore) => {
+    if (!currentUser) {
+      console.warn("No user logged in — skipping save.");
+      return;
+    }
     try {
         // Create a Firestore document reference for the favorite item.
         // The path is 'users/{userId}/favorites/{imageDate}'.
-        const progressRef = doc(db, 'users', currentUser.uid, 'current node', textNodeIndex);
+        const progressRef = doc(db, 'users', currentUser.uid, 'progress', String(indexToStore));
         // Create or overwrite the document at the specified reference with new data.
         await setDoc(progressRef, {
-            // Store the title of the APOD.
-            index: textNodeIndex,
-            // Add a server-side timestamp to record when it was favorited.
+            // Store the index of the current node
+            index: indexToStore,
+            // Add a server-side timestamp to record when teh user landed on that node
             createdAt: serverTimestamp(),
         });
         // Notify the user of the successful operation.
-        alert('Progress saved!');
+        console.log('Progress saved!');
         // If an error occurs while writing to Firestore...
     } catch (err) {
         // ...log the full error to the console for debugging purposes.
@@ -84,7 +100,7 @@ const Questions = () => {
         <Quote category={ quoteCategory }/>
         <Options currNode={ textNode }
           setNewIndex={ getCurrentNode }
-          restart={ handleRestart }/>
+          setFish={ setFishCount }/>
       </div>
     </div>
   );

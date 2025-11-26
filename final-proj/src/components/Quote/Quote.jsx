@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./Quote.css";
 import apiKey from "../../secrets.jsx";
 
-const Quote = (category) => {
+const Quote = (quoteCategory) => {
 
 const [quoteData, setQuoteData] = useState(null);
 const [loading, setLoading] = useState(true);
@@ -12,9 +12,7 @@ const [error, setError] = useState(null);
   useEffect(() =>{
     const fetchQuote = async () => {
 
-      // ?categories=" + category.category
-
-      const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + category.category ;
+      const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + quoteCategory.category ;
       try {
         const response = await fetch(url, {
           method: "GET",
@@ -24,7 +22,7 @@ const [error, setError] = useState(null);
         throw new Error(`error status: ${response.status}`);
       }
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setQuoteData(data);
         // console.log(quoteData)
       } 
@@ -39,7 +37,7 @@ const [error, setError] = useState(null);
 
   // change the style of this loading !!
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="api-loading">Loading...</div>;
   }
   // style this error message too !!
   if (error) {
