@@ -12,7 +12,9 @@ const [error, setError] = useState(null);
   useEffect(() =>{
     const fetchQuote = async () => {
 
-      const url = "https://api.api-ninjas.com/v2/quotes?categories=" + category.category;
+      // ?categories=" + category.category
+
+      const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + category.category ;
       try {
         const response = await fetch(url, {
           method: "GET",
@@ -22,7 +24,9 @@ const [error, setError] = useState(null);
         throw new Error(`error status: ${response.status}`);
       }
         const data = await response.json();
-        setQuoteData(data[0]);
+        console.log(data)
+        setQuoteData(data);
+        // console.log(quoteData)
       } 
       catch (err) {
         setError(err.message);
@@ -47,7 +51,7 @@ return (
         {quoteData && (
             <> 
                 <div className="quote-section">
-                    <p className="quote-text">"{quoteData.quote}"</p>
+                    <p className="quote-text">"{quoteData[0].quote}"</p>
                 </div> 
             </>
         )}
