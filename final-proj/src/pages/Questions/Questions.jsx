@@ -8,9 +8,7 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 // Import the initialized Firestore database instance from your configuration file.
 import { db } from '../../services/firebase.js'; 
 import { useAuth } from "../../context/AuthContext";
-// Import the fish count from context
-import React, { useContext } from 'react';
-import { FishCountContext } from '../../context/FishCountContext.jsx';
+
 
 
 const Questions = () => {
@@ -19,10 +17,7 @@ const Questions = () => {
 
   // get the current user to be able to store to their firebase
   const { currentUser } = useAuth();
-  // get the fish count useState varibale from the context
-  const { setFishCount } = useContext(FishCountContext);
-  const { fishCount } = useContext(FishCountContext);
-
+  
 
   //TODO: make sure that these are reset when the gameover page is restarted!!!!!!
   // set the initial index, fish, and quote category
@@ -100,7 +95,7 @@ const Questions = () => {
         <Quote category={ quoteCategory }/>
         <Options currNode={ textNode }
           setNewIndex={ getCurrentNode }
-          setFish={ setFishCount }/>
+          />
       </div>
     </div>
   );

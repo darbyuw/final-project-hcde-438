@@ -41,18 +41,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
-// when the fish count increases, the number of fish displayed on teh nav bar should reflect that
-// pass fishcount variable into the navbar component so that the navbar automaticcaly has access to the number
-// 
-
-// {currNode.options.map((option, index) => (
-//           <div 
-//             key={index}
-//             className="option-item"
-//             onClick={() => clickOption(option.nextText)}
-//           >
-//             {option.text}
-//           </div>
-//         ))}
 export default Navbar;

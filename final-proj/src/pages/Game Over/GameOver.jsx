@@ -3,6 +3,9 @@ import "./GameOver.css";
 
 
 const Gameover = () => {
+
+    // reset game progress in firestore!!!
+    
     return (
         <div className="gameover-container">
             <div className="gameover-content">
