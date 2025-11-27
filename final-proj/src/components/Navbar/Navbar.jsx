@@ -4,10 +4,13 @@ import { logoutUser } from "../../services/auth";
 import "./Navbar.css";
 import fishImg from "../../assets/Fish.png";
 import catImg from "../../assets/cat_logo.png";
+import { useContext } from "react";
+import { FishCountContext } from "../../context/FishCountContext";
 
 
 const Navbar = () => {
   const { currentUser } = useAuth();
+  const { fishCount } = useContext(FishCountContext);
 
   const handleLogout = async () => {
     await logoutUser();
@@ -24,8 +27,12 @@ const Navbar = () => {
       <div className="navbar-menu">
         {currentUser ? (
           <>
-            <div className="img-crop">
-              <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
+            <div className="fish-display">
+              {Array.from({ length: fishCount }).map((_, index) => (
+                <div key={index} className="img-crop">
+                  <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
+                </div>
+              ))}
             </div>
             <Link to="/dashboard" className="navbar-item">Game Progress</Link>
             {/* <Link to="/profile" className="navbar-item">Profile</Link> */}

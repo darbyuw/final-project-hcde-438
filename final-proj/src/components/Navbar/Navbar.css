@@ -30,6 +30,11 @@
     align-items: center;
   }
 
+  .fish-display {
+    display: flex;
+    flex-direction: row;
+  }
+
   .img-crop {
     margin-bottom: -20px;
     overflow: hidden;

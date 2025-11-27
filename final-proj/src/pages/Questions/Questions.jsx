@@ -8,6 +8,9 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 // Import the initialized Firestore database instance from your configuration file.
 import { db } from '../../services/firebase.js'; 
 import { useAuth } from "../../context/AuthContext";
+// Import the fish count from context
+import { useContext } from 'react';
+import { FishCountContext } from '../../context/FishCountContext.jsx';
 
 
 
@@ -17,7 +20,7 @@ const Questions = () => {
 
   // get the current user to be able to store to their firebase
   const { currentUser } = useAuth();
-  
+  const { fishCount, setFishCount } = useContext(FishCountContext);
 
   //TODO: make sure that these are reset when the gameover page is restarted!!!!!!
   // set the initial index, fish, and quote category
@@ -36,23 +39,20 @@ const Questions = () => {
   // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node tree. 
   // It checks if the current node has fish and updates the fish count context. Then it sets the quote category to the current text node to the 
   const getCurrentNode = (nextIndex) => {
-    let textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-    
-    // // this might be setting it to the previous category not the next category
-    // setQuoteCategory(String(textNode.category));
-    // // console.log(quoteCategory);
+    // get the next node: 
+    let nextTextNode = textNodes.find(textNode => textNode.id === textNodeIndex);
 
+    if (nextTextNode?.fish) {
+      setFishCount(prevCount => prevCount + nextTextNode.fish);
+      console.log("Adding fish:", nextTextNode.fish);
+    }
+
+    setQuoteCategory(String(nextTextNode.category));
+    
     // store progress in firebase
     storeProgress(nextIndex);
     
     setTextNodeIndex(nextIndex);
-    // set textNode to equal the next textnode that we are settting it to. now this points to the current text Node:
-    textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-    // now set the qutoe category to the category of the current textnode that we just set:
-    setQuoteCategory(String(textNode.category));
-    // WHY IS THIS NOT UPDATING TO THE NEXT CATeGoRY iT STILL GIVES THe VeRY FIRST CATEGORY
-    console.log("this is quote category of the freshly set node: " + quoteCategory);
-
   };
 
      // Define an asynchronous function to handle adding the users progress to firestore.
