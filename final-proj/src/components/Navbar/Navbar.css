@@ -15,7 +15,6 @@
     align-items: center;
   }
 
-
   .navbar-brand a {
     font-size: 1.5rem;
     font-weight: normal;
@@ -52,6 +51,10 @@
     margin-bottom: -20px;
   }
 
+  .img-cat:hover {
+    cursor: pointer;
+  }
+
   .img-crop img {
     width: 100px;
     height: 100px;
@@ -76,6 +79,7 @@
   
   .navbar-button {
     background-color: #28666E;
+    font-family: 'Inria Serif', serif;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -86,6 +90,7 @@
   }
   
   .navbar-button:hover {
-    background-color: #a0bfe0;
+    font-family: 'Inria Serif', serif;
+    background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
   }
