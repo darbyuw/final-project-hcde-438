@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./Quote.css";
 import apiKey from "../../secrets.jsx";
 
-const Quote = (quoteCategory) => {
+const Quote = ({ category }) => {
 
 const [quoteData, setQuoteData] = useState(null);
 const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const [error, setError] = useState(null);
   useEffect(() =>{
     const fetchQuote = async () => {
 
-      const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + quoteCategory.category ;
+      const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + category ;
       try {
         const response = await fetch(url, {
           method: "GET",
@@ -33,7 +33,7 @@ const [error, setError] = useState(null);
       }
     };
     fetchQuote();
-  }, []);
+  }, [category]);
 
   // change the style of this loading !!
   if (loading) {
@@ -41,17 +41,15 @@ const [error, setError] = useState(null);
   }
   // style this error message too !!
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="api-error">Error loading quote: {error}</div>;
   }
 
 return (
     <div className="quote-content">
-        {quoteData && (
-            <> 
-                <div className="quote-section">
-                    <p className="quote-text">"{quoteData[0].quote}"</p>
-                </div> 
-            </>
+        {quoteData && quoteData.length > 0 && (
+          <div className="quote-section">
+              <p className="quote-text">"{quoteData[0].quote}" - {quoteData[0].author}</p>
+          </div> 
         )}
     </div>
     );

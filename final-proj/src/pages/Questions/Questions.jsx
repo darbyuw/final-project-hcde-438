@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Quote from "../../components/Quote/Quote";
 import Options from "../../components/Options/Options";
 import textNodes from "../../textNodes";
@@ -22,10 +22,8 @@ const Questions = () => {
   const { currentUser } = useAuth();
   const { fishCount, setFishCount } = useContext(FishCountContext);
 
-  //TODO: make sure that these are reset when the gameover page is restarted!!!!!!
   // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
-  // const [fishCount, setFishCount] = useState(0);
   const [quoteCategory, setQuoteCategory] = useState(null);
 
   // set the inital node
@@ -35,20 +33,20 @@ const Questions = () => {
     setQuoteCategory(textNode.category);
   }
 
+  useEffect(() => {
+    if (textNode?.fish) {
+      setFishCount(prevCount => prevCount + textNode.fish);
+      console.log("Adding fish from useEffect: " + textNode.fish);
+    }
+    if (textNode?.category) {
+    setQuoteCategory(String(textNode.category));
+    }
+  }, [textNodeIndex, textNode]);
+
   // set the current node (this function is passed into the options component)
   // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node tree. 
   // It checks if the current node has fish and updates the fish count context. Then it sets the quote category to the current text node to the 
   const getCurrentNode = (nextIndex) => {
-    // get the next node: 
-    let nextTextNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-
-    if (nextTextNode?.fish) {
-      setFishCount(prevCount => prevCount + nextTextNode.fish);
-      console.log("Adding fish:", nextTextNode.fish);
-    }
-
-    setQuoteCategory(String(nextTextNode.category));
-    
     // store progress in firebase
     storeProgress(nextIndex);
     
@@ -84,10 +82,10 @@ const Questions = () => {
   };
 
   // restarting the game
-  const handleRestart = () => {
-    setTextNodeIndex(1);
-    setFishCount(0);
-  };
+  // const handleRestart = () => {
+  //   setTextNodeIndex(1);
+  //   setFishCount(0);
+  // };
 
   return (
     <div className="questions-container">
