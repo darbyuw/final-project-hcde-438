@@ -6,14 +6,16 @@ import { FishCountContext } from '../../context/FishCountContext.jsx';
 
 
 // description
-const Options = ({ currNode, setNewIndex}) => {
+const Options = ({ currNode, setNewIndex, onRestart}) => {
 
   const { fishCount } = useContext(FishCountContext);
   const navigate = useNavigate();
 
 
   const clickOption = (nextText) => {
-    if (nextText === -1 || fishCount >= 5) {
+    if (nextText === -1) {
+      onRestart();
+    } else if (fishCount >= 5) {
       navigate("/gameover");
     } else {
       setNewIndex(nextText);

@@ -4,13 +4,14 @@ import Options from "../../components/Options/Options";
 import textNodes from "../../textNodes";
 import "./Questions.css";
 // Import Firestore functions for creating documents and generating a server timestamp.
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 // Import the initialized Firestore database instance from your configuration file.
 import { db } from '../../services/firebase.js'; 
 import { useAuth } from "../../context/AuthContext";
 // Import the fish count from context
 import { useContext } from 'react';
 import { FishCountContext } from '../../context/FishCountContext.jsx';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -21,10 +22,12 @@ const Questions = () => {
   // get the current user to be able to store to their firebase
   const { currentUser } = useAuth();
   const { fishCount, setFishCount } = useContext(FishCountContext);
+  const location = useLocation();
 
   // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
   const [quoteCategory, setQuoteCategory] = useState(null);
+  const [loadingProgress, setLoadingProgress] = useState(true);
 
   // set the inital node
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
@@ -34,9 +37,47 @@ const Questions = () => {
   }
 
   useEffect(() => {
+    const loadProgress = async () => {
+      const startNewGame = location.state?.startNewGame;
+
+      if (startNewGame) {
+        setTextNodeIndex(1);
+        setFishCount(0);
+        setLoadingProgress(false);
+        return;
+      }
+      // load saved progress from firestore when it is not a new game:
+      try {
+        const progressCol = collection(db, 'users', currentUser.uid, 'progress');
+        const q = query(progressCol, orderBy('createdAt', 'desc'), limit(1));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          const lastProgress = querySnapshot.docs[0].data();
+          const savedIndex = lastProgress.index;
+          const savedFishCount = lastProgress.fishCount || 0;
+
+          setTextNodeIndex(savedIndex);
+          setFishCount(savedFishCount);
+        } else {
+          setTextNodeIndex(1);
+          setFishCount(0);
+        } 
+      } catch (err) {
+          console.error("Error loading progress from Firebase: ", err);
+          setTextNodeIndex(1);
+          setFishCount(0);
+      } finally {
+        setLoadingProgress(false);
+      }
+    };
+    loadProgress();
+  }, [currentUser]);
+  
+// update fish count & category at new nodes
+  useEffect(() => {
     if (textNode?.fish) {
       setFishCount(prevCount => prevCount + textNode.fish);
-      console.log("Adding fish from useEffect: " + textNode.fish);
     }
     if (textNode?.category) {
     setQuoteCategory(String(textNode.category));
@@ -45,11 +86,9 @@ const Questions = () => {
 
   // set the current node (this function is passed into the options component)
   // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node tree. 
-  // It checks if the current node has fish and updates the fish count context. Then it sets the quote category to the current text node to the 
   const getCurrentNode = (nextIndex) => {
     // store progress in firebase
     storeProgress(nextIndex);
-    
     setTextNodeIndex(nextIndex);
   };
 
@@ -67,6 +106,8 @@ const Questions = () => {
         await setDoc(progressRef, {
             // Store the index of the current node
             index: indexToStore,
+            // Store the current fish count
+            fishCount: fishCount,
             // Add a server-side timestamp to record when teh user landed on that node
             createdAt: serverTimestamp(),
         });
@@ -81,11 +122,12 @@ const Questions = () => {
     }
   };
 
-  // restarting the game
-  // const handleRestart = () => {
-  //   setTextNodeIndex(1);
-  //   setFishCount(0);
-  // };
+  const handleRestart = () => {
+    console.log("Restarting game");
+    setTextNodeIndex(1);
+    setFishCount(0);
+    setQuoteCategory("life");
+  };
 
   return (
     <div className="questions-container">
@@ -93,6 +135,7 @@ const Questions = () => {
         <Quote category={ quoteCategory }/>
         <Options currNode={ textNode }
           setNewIndex={ getCurrentNode }
+          onRestart= { handleRestart }
           />
       </div>
     </div>

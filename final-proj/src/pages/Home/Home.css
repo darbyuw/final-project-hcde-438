@@ -27,6 +27,7 @@
     color: #666;
     margin-bottom: 2rem;
     line-height: 1.6;
+    font-family: 'Inria Sans', sans-serif;
   }
   
   .cta-buttons {
@@ -48,6 +49,8 @@
   .cta-button.primary {
     background-color: #28666E;
     color: white;
+    font-family: 'Inria Serif', serif;
+
   }
   
   .cta-button.primary:hover {
@@ -58,6 +61,8 @@
     background-color: white;
     color: #28666E;
     border: 1px solid #28666E;
+    font-family: 'Inria Serif', serif;
+
   }
   
   .cta-button.secondary:hover {

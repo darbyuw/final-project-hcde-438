@@ -37,11 +37,15 @@ const [error, setError] = useState(null);
 
   // change the style of this loading !!
   if (loading) {
-    return <div className="api-loading">Loading...</div>;
+    return <div className="quote-content">
+              <div className="api-loading">Loading...</div>
+            </div>;
   }
   // style this error message too !!
   if (error) {
-    return <div className="api-error">Error loading quote: {error}</div>;
+    return <div className="quote-content">
+        <div className="api-error">Error loading quote: {error}</div>
+    </div>;
   }
 
 return (

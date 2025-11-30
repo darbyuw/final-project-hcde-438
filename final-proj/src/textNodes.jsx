@@ -18,7 +18,7 @@ const textNotes = [
     },
     {
         id: 2,
-        text: 'You decide the cold is too much for you, so you stay inside to search for fish. Where would you like to search first?',
+        text: 'You decide the cold is too much for you, so you stay inside to search for fish. Where would you like to search?',
         options: [ 
             {
                 text: "The living room.",
@@ -27,6 +27,10 @@ const textNotes = [
             {
                 text: "The kitchen.",
                 nextText: 5
+            },
+            {
+                text: "I changed my mind, I'll go outside.",
+                nextText: 3
             }
         ],
         category: "inspirational"
@@ -40,8 +44,11 @@ const textNotes = [
                 nextText: 6
             },
             {
-                text: "Let's go through the fence gate to the alley instead.",
+                text: "I'll go through the fence gate to the alley instead.",
                 nextText: 7
+            },
+            {
+                text: "I changed my mind, I'll go back inside."
             }
         ],
         category: "freedom"
@@ -55,7 +62,7 @@ const textNotes = [
                 nextText: 8
             },
             {
-                text: "Go back into the kitchen.",
+                text: "Go into the kitchen.",
                 nextText: 5
             }
         ],
@@ -82,7 +89,7 @@ const textNotes = [
         text: "You jump up on the fence and peer into the neighbor's window. Inside, you see a delicious fish dinner on the table! As you try to climb in, you hear a noise. It's the neighbors dog! He spots you and starts barking loudly. You quickly run home, scared. You decide today is not the day for fish after all.",
         options: [
             {
-                text: "Restart",
+                text: "You got scared: Restart",
                 nextText: -1
             }
         ],
@@ -123,6 +130,10 @@ const textNotes = [
             {
                 text: "Go outside to the backyard.",
                 nextText: 3
+            },
+            {
+                text: "Look in the kitchen cabinet.",
+                nextText: 10
             }
         ],
         fish: 1,
@@ -133,7 +144,7 @@ const textNotes = [
         text: "You hop onto the counter and paw at the cabinet until it opens. Inside your senses immedietly alert you to an amazing smell. You bat a small bag out of the cabinet and it bursts open on the floor. Catnip! You roll around in it happily for a while. Wait, what were you looking for again? Oh well, time for a nap.",
         options: [
             {
-                text: "Restart",
+                text: "You got distracted: Restart",
                 nextText: -1
             }
         ], 
@@ -159,7 +170,7 @@ const textNotes = [
         text: "Facing the unknown cat you stand to your fullest height and arch your back. The other cat hisses and takes a swipe at you. You lunch for their ear and suddenly you're both tumbling down the alley. After a few moments of scratching, you both stop and stare at each other before running off in opposite directions. Back at your house, you feel like you forgot something. Maybe you'll remember after a nap.",
         options: [
             {
-                text: "Restart",
+                text: "You got distracted: Restart",
                 nextText: -1
             }
         ], 
@@ -167,7 +178,7 @@ const textNotes = [
     },
     {
         id: 13,
-        text: "Ignoring the other cat, you dash to the pond. The rain drizzles on your fur as you pad out onto the small wodden dock. Peering over the edge, you notice the rain brought all the fish to the top of the water! Waiting unitl the timing is right, you quickly swipe a paw into the water. Repeating this tactic you manage to grab three fish! Yum! Finally satisfied, you head home for a long nap.",
+        text: "Ignoring the other cat, you dash to the pond. The rain drizzles on your fur as you pad out onto the small wodden dock. Peering over the edge, you notice the rain brought all the fish to the top of the water! Waiting until the timing is right, you quickly swipe a paw into the water. Repeating this tactic you manage to grab three fish! Yum! Finally satisfied, you head home for a long nap.",
         options: [
             {
                 text: "Restart",

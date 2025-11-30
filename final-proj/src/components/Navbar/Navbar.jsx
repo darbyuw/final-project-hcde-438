@@ -34,7 +34,7 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
-            <Link to="/dashboard" className="navbar-item">Continue Game</Link>
+            <Link to="/" className="navbar-item">Save & Quit</Link>
             {/* <Link to="/profile" className="navbar-item">Profile</Link> */}
             <button onClick={handleLogout} className="navbar-button">Logout</button>
           </>
