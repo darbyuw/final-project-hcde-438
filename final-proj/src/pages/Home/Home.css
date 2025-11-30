@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh);
     padding: 2rem;
     background-color: #3F2230;
   }
@@ -24,7 +24,7 @@
   
   .home-description {
     font-size: 1.2rem;
-    color: #666;
+    color: #3F2230;
     margin-bottom: 2rem;
     line-height: 1.6;
     font-family: 'Inria Sans', sans-serif;

@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     min-height: calc(100vh - 70px);
-    background-color: #3F2230;
+    /* background-color: #3F2230; */
     text-align: center;
 }
 
