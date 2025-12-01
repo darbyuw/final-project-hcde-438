@@ -38,7 +38,7 @@ const Register = () => {
       }
       
       // Redirect to dashboard on successful registration
-      navigate("/dashboard");
+      navigate("/questions");
     } catch (err) {
       setError("Failed to create an account. Please try again.");
     } finally {

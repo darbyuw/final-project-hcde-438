@@ -11,7 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 // Import the fish count from context
 import { useContext } from 'react';
 import { FishCountContext } from '../../context/FishCountContext.jsx';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 
 
 
@@ -23,6 +23,7 @@ const Questions = () => {
   const { currentUser } = useAuth();
   const { fishCount, setFishCount } = useContext(FishCountContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
@@ -77,11 +78,19 @@ const Questions = () => {
 // update fish count & category at new nodes
   useEffect(() => {
     if (textNode?.fish) {
-      setFishCount(prevCount => prevCount + textNode.fish);
+      const newFishCount = fishCount + textNode.fish;
+      setFishCount(newFishCount);
+      if (newFishCount >= 5) {
+        console.log("Game won! You collected", newFishCount, "fish!");
+        setTimeout(() => {
+          navigate("/gameover");
+        }, 2000);
+      } 
     }
     if (textNode?.category) {
     setQuoteCategory(String(textNode.category));
     }
+    
   }, [textNodeIndex, textNode]);
 
   // set the current node (this function is passed into the options component)
