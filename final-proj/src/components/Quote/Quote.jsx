@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef} from "react";
 import "./Quote.css";
 import apiKey from "../../secrets.jsx";
 
@@ -8,9 +8,17 @@ const Quote = ({ category }) => {
 const [quoteData, setQuoteData] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+const lastCategory = useRef(null);
 
-  useEffect(() =>{
-    const fetchQuote = async () => {
+useEffect(() => {
+  // Only fetch if the category changed
+  if (lastCategory.current === category) return;
+
+  lastCategory.current = category;
+
+  const fetchQuote = async () => {
+      setLoading(true);
+      setError(null);
 
       const url = "https://api.api-ninjas.com/v2/randomquotes?categories=" + category ;
       try {
