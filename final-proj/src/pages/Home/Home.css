@@ -82,10 +82,10 @@
 
 @media (max-width: 500px) {
   .home-content h1 {
-    font-size: 1rem;
+    font-size: 20px;
   }
   .home-description {
-    font-size: .75rem;
+    font-size: 14px;
   }
   .cta-button {
     font-size: .75rem;

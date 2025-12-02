@@ -37,7 +37,17 @@ const Options = ({ currNode, setNewIndex, onRestart}) => {
           <div 
             key={index}
             className="option-item"
+            tabIndex={0}
             onClick={() => clickOption(option.nextText)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") { // use enter and space key for navigation!
+                event.preventDefault();  
+                clickOption(option.nextText);
+              }
+            }}
+            role="button"    
+            aria-pressed="false"
+            aria-label={option.text}
           >
             {option.text}
           </div>

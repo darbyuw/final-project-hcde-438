@@ -47,6 +47,12 @@
     cursor: pointer;
 }
 
+.option-item:focus {
+    border: 1.5px solid #28666E;
+}
+
+
+
  @media (max-width: 520px) {
     .question-section {
         width: 100%;
