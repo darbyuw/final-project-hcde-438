@@ -29,8 +29,6 @@
 
 .option-item {
     display: flex;
-    /* width: 419px;
-    height: 58px; */
     padding: 14px;
     margin: 0px 14px 14px 14px;
     align-items: center;
@@ -48,3 +46,21 @@
     line-height: normal;
     cursor: pointer;
 }
+
+ @media (max-width: 520px) {
+    .question-section {
+        width: 100%;
+    }
+    .options-section {
+        width: 100%;
+    }
+  }
+
+ @media (max-width: 400px) {
+    .option-item {
+        font-size: 16px;
+    }
+    .question-section {
+        font-size: 16px;
+    }
+  }

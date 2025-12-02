@@ -43,13 +43,11 @@ useEffect(() => {
     fetchQuote();
   }, [category]);
 
-  // change the style of this loading !!
   if (loading) {
     return <div className="quote-content">
               <div className="api-loading">Loading quote...</div>
             </div>;
   }
-  // style this error message too !!
   if (error) {
     return <div className="quote-content">
         <div className="api-error">Error loading quote: {error}</div>

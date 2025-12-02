@@ -48,7 +48,8 @@ const textNotes = [
                 nextText: 7
             },
             {
-                text: "I changed my mind, I'll go back inside."
+                text: "I changed my mind, I'll go back inside.",
+                nextText: 2
             }
         ],
         category: "freedom"

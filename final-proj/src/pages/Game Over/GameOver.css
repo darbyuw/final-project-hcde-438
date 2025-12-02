@@ -20,10 +20,15 @@
   color: white;
 }
 
-@media (min-width: 1024px) {
-.gameover-content {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+@media (max-width: 430px) {
+  .gameover-content {
+    /* width: 95%; */
+    margin: 10px;
+  }
+  .gameover-content h1 {
+    font-size: 24px;
+  }
+  .gameover-content p {
+    font-size: 14px;
   }
 }

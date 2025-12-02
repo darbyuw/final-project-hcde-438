@@ -68,3 +68,32 @@
   .cta-button.secondary:hover {
     background-color: #f0f2f5;
   }
+
+  /* ---------------------------RESPONSIVE DESIGN----------------------------------------------------------------------------------*/
+
+@media (max-width: 800px) {
+  .home-content h1 {
+    font-size: 1.75rem;
+  }
+  .home-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .home-content h1 {
+    font-size: 1rem;
+  }
+  .home-description {
+    font-size: .75rem;
+  }
+  .cta-button {
+    font-size: .75rem;
+  }
+  .home-container {
+    justify-content: flex-start;
+  }
+  .home-content {
+    margin-top: 20px;
+  }
+}

@@ -43,3 +43,25 @@
     font-style: italic;
     width: 499px;
 }
+
+ @media (max-width: 520px) {
+    .quote-section {
+        width: 100%;
+    }
+    .api-loading {
+        width: 100%;
+    }
+    .api-error {
+        width: 100%;
+    }
+    .quote-content {
+        width: 100%;
+    }
+
+  }
+
+@media (max-width: 400px) {
+    .quote-text {
+        font-size: 14px;
+    }
+}

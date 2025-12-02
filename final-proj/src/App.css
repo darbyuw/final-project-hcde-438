@@ -46,3 +46,8 @@ button {
   font-size: 1.2rem;
   color: #3F2230;
 }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}

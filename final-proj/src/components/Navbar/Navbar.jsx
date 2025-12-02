@@ -33,11 +33,13 @@ const Navbar = () => {
               <div className="fish-count-text">
                 Fish Count: { fishCount }
               </div>
-              {Array.from({ length: fishCount }).map((_, index) => (
-                <div key={index} className="img-crop">
-                  <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
-                </div>
-              ))}
+              <div className="fish-grid">
+                {Array.from({ length: fishCount }).map((_, index) => (
+                  <div key={index} className="img-crop">
+                    <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
+                  </div>
+                ))}
+              </div>
             </div>
             <Link to="/" className="navbar-item">Save & Quit</Link>
             {/* <Link to="/profile" className="navbar-item">Profile</Link> */}

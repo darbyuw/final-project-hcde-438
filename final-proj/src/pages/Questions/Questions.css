@@ -18,11 +18,10 @@
   .questions-content > p {
     color: white;
   }
-/*   
-  @media (min-width: 1024px) {
+  
+  @media (max-width: 520px) {
     .questions-content {
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
+      width: 95%;
+      margin: 70px 10px 0px 10px;
     }
-  } */
+  }

@@ -45,6 +45,12 @@
     overflow: hidden;
   }
 
+  .fish-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .img-cat {
     margin-bottom: -10px;
     overflow: hidden;
@@ -110,3 +116,38 @@
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
   }
+
+
+/* ---------------------------RESPONSIVE DESIGN----------------------------------------------------------------------------------*/
+@media (max-width: 875px) {
+  .fish-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 743px) {
+  .navbar-menu {
+    gap: .25rem;
+  }
+}
+@media (max-width: 720px) {
+  .img-crop {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .img-cat {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@media (max-width: 345px) {
+  .navbar-menu {
+    flex-direction: column;
+  }
+}
