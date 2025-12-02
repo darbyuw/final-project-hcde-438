@@ -49,6 +49,7 @@
     margin-bottom: -10px;
     overflow: hidden;
   }
+
   .img-cat img {
     width: 100px;
     height: 100px;
@@ -68,6 +69,14 @@
     margin-left: -20px;
     margin-bottom: -20px;
   }
+
+  .fish-count-text {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;    
+  }
   
   .navbar-item {
     background-color: #28666E;
@@ -82,7 +91,6 @@
   .navbar-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
-
   }
   
   .navbar-button {

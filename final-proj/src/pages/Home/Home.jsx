@@ -44,6 +44,7 @@ const Home = () => {
         <h1>A Cat's Journey</h1>
         <p className="home-description">
           Guide your cat towards fish with this choose-your-own adventure game. 
+          Collect five fish to win.
           Create an account to save your game progress.
         </p>
         

@@ -28,6 +28,9 @@ const Navbar = () => {
         {currentUser ? (
           <>
             <div className="fish-display">
+              <div className="fish-count-text">
+                Fish Count: { fishCount }
+              </div>
               {Array.from({ length: fishCount }).map((_, index) => (
                 <div key={index} className="img-crop">
                   <img src={fishImg} alt="A fish facing left with an 'x' for eyes" />
@@ -41,7 +44,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/login" className="navbar-item">Login</Link>
-            <Link to="/register" className="navbar-item">Register</Link>
+            <Link to="/register" className="navbar-item">Create Account</Link>
           </>
         )}
       </div>
