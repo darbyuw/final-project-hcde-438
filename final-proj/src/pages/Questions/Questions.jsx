@@ -3,18 +3,14 @@ import Quote from "../../components/Quote/Quote";
 import Options from "../../components/Options/Options";
 import textNodes from "../../textNodes";
 import "./Questions.css";
-// Import Firestore functions for creating documents and generating a server timestamp.
 import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
-// Import the initialized Firestore database instance from your configuration file.
 import { db } from '../../services/firebase.js'; 
 import { useAuth } from "../../context/AuthContext";
-// Import the fish count from context
 import { useContext } from 'react';
 import { FishCountContext } from '../../context/FishCountContext.jsx';
 import { useLocation, useNavigate} from 'react-router-dom';
 
-
-
+// DESCRIPTION
 const Questions = () => {
 
   // TODO: implement a background image change with usestate or useeffect (similar to dark/light mode from class example)
@@ -112,17 +108,14 @@ const Questions = () => {
     setTextNodeIndex(nextIndex);
   };
 
-     // Define an asynchronous function to handle adding the users progress to firestore.
+   // Define an asynchronous function to handle adding the users progress to firestore.
   const storeProgress = async (indexToStore) => {
     if (!currentUser) {
       console.warn("No user logged in — skipping save.");
       return;
     }
     try {
-        // Create a Firestore document reference for the favorite item.
-        // The path is 'users/{userId}/favorites/{imageDate}'.
         const progressRef = doc(db, 'users', currentUser.uid, 'progress', String(indexToStore));
-        // Create or overwrite the document at the specified reference with new data.
         await setDoc(progressRef, {
             // Store the index of the current node
             index: indexToStore,
@@ -131,14 +124,10 @@ const Questions = () => {
             // Add a server-side timestamp to record when teh user landed on that node
             createdAt: serverTimestamp(),
         });
-        // Notify the user of the successful operation.
-        console.log('Progress saved!');
-        // If an error occurs while writing to Firestore...
+        // console.log('Progress saved!');
     } catch (err) {
-        // ...log the full error to the console for debugging purposes.
         console.error("Error saving progress: ", err);
-        // ...and show a generic error message to the user.
-        alert('Failed to save progress.');
+        alert('Failed to save game progress. If you exit the game, your progress might not be saved.');
     }
   };
 

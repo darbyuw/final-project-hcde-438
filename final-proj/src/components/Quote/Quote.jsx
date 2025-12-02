@@ -46,7 +46,7 @@ useEffect(() => {
   // change the style of this loading !!
   if (loading) {
     return <div className="quote-content">
-              <div className="api-loading">Loading...</div>
+              <div className="api-loading">Loading quote...</div>
             </div>;
   }
   // style this error message too !!
