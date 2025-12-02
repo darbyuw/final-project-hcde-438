@@ -22,7 +22,9 @@ const Navbar = () => {
         <div className="img-cat">
           <img src={catImg} alt="A sketch of a cat's face looking forward" />
         </div>
-        <Link to="/">A Cat's Journey</Link>
+        <div className="game-title">
+          <Link to="/">A Cat's Journey</Link>
+        </div>
       </div>
       <div className="navbar-menu">
         {currentUser ? (

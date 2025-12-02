@@ -41,12 +41,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-content">
-        <h1>A Cat's Journey</h1>
+        <h1>Welcome to A Cat's Journey</h1>
         <p className="home-description">
           Guide your cat towards fish with this choose-your-own adventure game. 
-          Collect five fish to win.
           Create an account to save your game progress.
         </p>
+        <p className="home-description">Collect five fish to win.</p>
         
         <div className="cta-buttons">
           {currentUser ? (
