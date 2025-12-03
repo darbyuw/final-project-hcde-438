@@ -61,10 +61,10 @@ const Home = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="cta-button primary">
+              <Link to="/login" className="cta-button primary" aria-label="Log in to an exisitng account">
                 Login
               </Link>
-              <Link to="/register" className="cta-button secondary">
+              <Link to="/register" className="cta-button secondary" aria-label="Create a new account">
                 Create Account
               </Link>
             </>
