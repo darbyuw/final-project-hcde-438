@@ -55,7 +55,7 @@ const Home = () => {
           Guide your cat towards fish with this choose-your-own adventure game. 
           Create an account to save your game progress.
         </p>
-        <p className="home-description">Collect five fish to win.</p>
+        <p className="home-description">Collect <strong>FOUR fish</strong> to win.</p>
         
         <div className="cta-buttons">
           {currentUser ? (

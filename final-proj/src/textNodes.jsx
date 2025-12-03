@@ -93,7 +93,7 @@ const textNotes = [
         text: "You jump up on the fence and peer into the neighbor's window. Inside, you see a delicious fish dinner on the table! As you try to climb in, you hear a noise. It's the neighbors dog! He spots you and starts barking loudly. You quickly run home, scared. You decide today is not the day for fish after all.",
         options: [
             {
-                text: "You got scared: Restart",
+                text: "You got scared: Restart.",
                 nextText: -1
             }
         ],
@@ -104,11 +104,11 @@ const textNotes = [
         text: "Outside the fence is a creek running down the street. There's a fish swimming in the creek! You scoop it up and enjoy it. Yum! What is your next move?",
         options: [
             {
-                text: "Go back inside and search the house",
+                text: "Go back inside and search the house.",
                 nextText: 2
             },
             {
-                text: "Walk down the street towards the pond",
+                text: "Walk down the street towards the pond.",
                 nextText: 11,
             },
         ],
@@ -117,7 +117,7 @@ const textNotes = [
     },
     {
         id: 8,
-        text: "You jump down the stairs into the basement. Walking among the shelves of stored food, you follow your nose towards the smell of fish. You find a can of tuna! You open it and enjoy a tasty snack. Yum! What would you like to do next?",
+        text: "You jump down the stairs into the basement. Walking among the shelves of stored food, you follow your nose towards the smell of fish. You find a can of sardines! You open it and enjoy a tasty snack. Yum! What would you like to do next?",
         options: [
             {
                 text: "Go back upstairs to the kitchen.",
@@ -148,7 +148,7 @@ const textNotes = [
         text: "You hop onto the counter and paw at the cabinet until it opens. Inside your senses immedietly alert you to an amazing smell. You bat a small bag out of the cabinet and it bursts open on the floor. Catnip! You roll around in it happily for a while. Wait, what were you looking for again? Oh well, time for a nap.",
         options: [
             {
-                text: "You got distracted: Restart",
+                text: "You got distracted: Restart.",
                 nextText: -1
             }
         ], 
@@ -174,7 +174,7 @@ const textNotes = [
         text: "Facing the unknown cat you stand to your fullest height and arch your back. The other cat hisses and takes a swipe at you. You lunch for their ear and suddenly you're both tumbling down the alley. After a few moments of scratching, you both stop and stare at each other before running off in opposite directions. Back at your house, you feel like you forgot something. Maybe you'll remember after a nap.",
         options: [
             {
-                text: "You got distracted: Restart",
+                text: "You got distracted: Restart.",
                 nextText: -1
             }
         ], 
@@ -185,8 +185,8 @@ const textNotes = [
         text: "Ignoring the other cat, you dash to the pond. The rain drizzles on your fur as you pad out onto the small wodden dock. Peering over the edge, you notice the rain brought all the fish to the top of the water! Waiting until the timing is right, you quickly swipe a paw into the water. Repeating this tactic you manage to grab three fish! Yum! Finally satisfied, you head home for a long nap.",
         options: [
             {
-                text: "Restart",
-                nextText: -1
+                text: "Return to the house to continue searching.",
+                nextText: 2
             }
         ],
         fish: 3, 

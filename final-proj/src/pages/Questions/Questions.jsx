@@ -87,7 +87,7 @@ const Questions = () => {
     if (textNode?.fish) {
       const newFishCount = fishCount + textNode.fish;
       setFishCount(newFishCount);
-      if (newFishCount >= 5) {
+      if (newFishCount >= 4) {
         console.log("Game won! You collected", newFishCount, "fish!");
         setTimeout(() => {
           navigate("/gameover");
@@ -152,7 +152,7 @@ const Questions = () => {
   }
 
   return (
-    <div className="questions-container" title="Background showing a living room">
+    <div className="questions-container" aria-label="Background showing a living room">
       <div className="questions-content">
         <Quote category={ quoteCategory }/>
         <Options currNode={ textNode }

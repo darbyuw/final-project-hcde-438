@@ -37,7 +37,7 @@ const Gameover = () => {
         <div className="gameover-container">
             <div className="gameover-content">
                 <h1>Game over!</h1>
-                <p>You successfully collected {fishCount} fish</p>
+                <p>You won! You successfully collected {fishCount} fish.</p>
                 <Link to="/questions" className="cta-button primary">
                     Restart
                 </Link>
