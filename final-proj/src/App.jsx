@@ -1,3 +1,14 @@
+/**
+ * December 3rd, 2025
+ * HCDE 438 Final Project
+ * 
+ * This web application is an interactive choose-your-own-adventure game called A Cat's Journey. 
+ * Fetches data from the Quote Ninja API. Renders React components including a navigation bar, home page, log in page, 
+ * register page, and game page. 
+ *
+ * @summary An interactive web app choose-your-own-adventure game called A Cat's Journey.
+ * @author Darby Moore
+ */
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -11,6 +22,7 @@ import Questions from "./pages/Questions/Questions";
 import Gameover from "./pages/Game Over/GameOver";
 import { FishCountProvider } from './context/FishCountContext';
 
+// Returns the app React components and all routes, including an authentication provider. 
 function App() {
   return (
     <AuthProvider>
@@ -32,14 +44,6 @@ function App() {
                   } 
                 />
                 <Route path="/gameover" element={<Gameover />} />
-                {/* <Route 
-                  path="/profile" 
-                  element={
-                    <ProtectedRoute>
-                      <Profile />
-                    </ProtectedRoute>
-                  } 
-                /> */}
               </Routes>
             </main>
           </div>

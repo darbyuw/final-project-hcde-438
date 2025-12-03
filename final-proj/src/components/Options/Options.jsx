@@ -5,13 +5,15 @@ import { useContext } from "react";
 import { FishCountContext } from '../../context/FishCountContext.jsx';
 
 
-// description
+// This component takes in the current text node, the setNewIndex function, and the onRestart function. 
+// It returns the options content with the locaiton description and option buttons. 
 const Options = ({ currNode, setNewIndex, onRestart}) => {
 
   const { fishCount } = useContext(FishCountContext);
   const navigate = useNavigate();
 
-
+  // This function takes in nextText (number) which indicates the index of the next node. 
+  // It detemrines if the game should be restarted, Game Over page rendered, or a new index set.  
   const clickOption = (nextText) => {
     if (nextText === -1) {
       onRestart();
@@ -22,7 +24,7 @@ const Options = ({ currNode, setNewIndex, onRestart}) => {
     }
   };
 
-  // if no current node
+  // If no current node
   if (!currNode) {
     return <div>Loading...</div>;
   }

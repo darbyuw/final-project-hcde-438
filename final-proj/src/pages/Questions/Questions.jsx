@@ -10,19 +10,14 @@ import { useContext } from 'react';
 import { FishCountContext } from '../../context/FishCountContext.jsx';
 import { useLocation, useNavigate} from 'react-router-dom';
 
-// DESCRIPTION
+// This function returns the Questions page which is the page that shows all of the game choices. This is a component that 
+// renders the Qutoe and Options components. The game is played entirely within this page. 
 const Questions = () => {
-
-  // TODO: implement a background image change with usestate or useeffect (similar to dark/light mode from class example)
-
-  // get the current user to be able to store to their firebase
   const { currentUser } = useAuth();
   const { fishCount, setFishCount } = useContext(FishCountContext);
   const location = useLocation();
   const navigate = useNavigate();
   const isFirstLoad = useRef(true);
-
-  // set the initial index, fish, and quote category
   const [textNodeIndex, setTextNodeIndex] = useState(1);
   const [quoteCategory, setQuoteCategory] = useState("life");
   const [loadingProgress, setLoadingProgress] = useState(true);
@@ -30,7 +25,10 @@ const Questions = () => {
   // set the inital node
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
 
+  // This hook will run when there is a new user logged in. 
   useEffect(() => {
+    // This function checks if a new game is being started, then loads the user's current progress from FireStore. 
+    // It sets the textNodeIndex, fishCount, and quoteCategory to the information saved in FireStore. 
     const loadProgress = async () => {
       const startNewGame = location.state?.startNewGame;
 
@@ -77,7 +75,9 @@ const Questions = () => {
     loadProgress();
   }, [currentUser]);
   
-// update fish count and category at new nodes only when there is a new category and fish are found. 
+// Update fishCount and quoteCategory at new nodes only when there is a new category and fish are found. 
+// This hook checks if the user has found five fish. If they have found five fish, then it navigates to the Game Over page 
+// after three seconds. This allows the user to read the final location in the game before they are redirected to another page. 
   useEffect(() => {
     // dont go inside useEffect if we are on the first load
     if (isFirstLoad.current) {
@@ -100,15 +100,17 @@ const Questions = () => {
     
   }, [textNodeIndex]);
 
-  // set the current node (this function is passed into the options component)
-  // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node tree. 
+  // This function sets the current node (this function is passed into the options component)
+  // This funciton is called when the user clicks on an option. It takes in the index of the next node in the text node structure.\
+  // It stores the users progress in FireStore and sets the textNodeIndex to the given nextIndex (number) 
   const getCurrentNode = (nextIndex) => {
     // store progress in firebase
     storeProgress(nextIndex);
     setTextNodeIndex(nextIndex);
   };
 
-   // Define an asynchronous function to handle adding the users progress to firestore.
+  // This is an asynchronous function that handles adding the users progress to Firestore. It takes in the current location
+  // of the user in teh game in the form of indexToStore which is a number. 
   const storeProgress = async (indexToStore) => {
     if (!currentUser) {
       console.warn("No user logged in — skipping save.");
@@ -131,6 +133,8 @@ const Questions = () => {
     }
   };
 
+  // This function is passed into the options component. It resets teh textNodeIndex, fishCount, and quoteCategory when the user
+  // comes across a dead end in the game where the cat gets distracted.
   const handleRestart = () => {
     setTextNodeIndex(1);
     setFishCount(0);

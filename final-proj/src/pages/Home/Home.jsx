@@ -1,3 +1,7 @@
+/**
+ * This is the Home page that is rendered by the root of the web app. This page checks if a user is logged in, and 
+ * if they have saved game progress on Firebase. 
+ */
 import { Link, useNavigate} from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
@@ -5,6 +9,7 @@ import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import "./Home.css";
 
+// This function the home page and all interactive elements on the page. 
 const Home = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -12,6 +17,8 @@ const Home = () => {
   const [checkingProgress, setCheckingProgress] = useState(true);
 
   useEffect(() => {
+    // This function checks if the user has exisiting game progress saved in Firestore. If there is saved progress, then 
+    // the variable savedProgress is set to 'true'. Otherwise, savedProgress is set to 'false'.
     const checkIfProgress = async () => {
       if (!currentUser) {
         setCheckingProgress(false);
@@ -34,6 +41,8 @@ const Home = () => {
     checkIfProgress();
   }, [currentUser]);
 
+  // This function is called when the user clicks on the Start New Game button, it navigates to the questions page
+  // and sets the startNewGame state to 'true' to allow for the beginning of the game to occur. 
   const handleStartNewGame = () => {
     navigate("/questions", {state: { startNewGame: true }});
   }

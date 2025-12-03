@@ -1,3 +1,9 @@
+/**
+ * Navigation bar component that is rendered by app.jsx. This is a React component that includes the game title,  
+ * user's fish count, login, register, and logout buttons. This component changes based on whether a user is 
+ * logged in to the web application.
+ */
+
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { logoutUser } from "../../services/auth";
@@ -7,11 +13,12 @@ import catImg from "../../assets/cat_logo.png";
 import { useContext } from "react";
 import { FishCountContext } from "../../context/FishCountContext";
 
-
+// This component returns the navigation bar at the top of the web application. It also calls the log out function from authentication. 
 const Navbar = () => {
   const { currentUser } = useAuth();
   const { fishCount } = useContext(FishCountContext);
 
+  // This asyncronous function calls the logoutUser() funciton from authentication. This is called when the user clicks on the log out button. 
   const handleLogout = async () => {
     await logoutUser();
   };

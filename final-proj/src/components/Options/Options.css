@@ -4,7 +4,6 @@
     justify-content: flex-start;
     align-items: center;
     min-height: calc(100vh - 70px);
-    /* background-color: #3F2230; */
     text-align: center;
 }
 
@@ -12,8 +11,6 @@
     width: 499px;
     background-color: #E6E7F0;
     padding: 0px 1.5rem 1.5rem 1.5rem;
-    /* width: 100%; */
-    /* max-width: 400px; */
     font-weight: 700;
     font-size: 18px;
 }
@@ -22,8 +19,6 @@
     background-color: #E6E7F0;
     border-radius: 0px 0px 8px 8px;
     padding: 0rem 1.5rem 1.5rem 1.5rem;
-    /* width: 100%;
-    max-width: 400px; */
     width: 499px;
 }
 
@@ -50,6 +45,8 @@
 .option-item:focus {
     border: 1.5px solid #28666E;
 }
+
+/* ---------------------------RESPONSIVE DESIGN----------------------------------------------------------------------------------*/
 
  @media (max-width: 520px) {
     .question-section {

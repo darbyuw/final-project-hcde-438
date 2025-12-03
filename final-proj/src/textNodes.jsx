@@ -1,5 +1,8 @@
-
-// A tree with all the questions and options in the story
+/**
+ * This is the array strucutre that includes all the the descriptions, options, and indicies of the game. 
+ * Each object in the array holds an id (number), text (String), options (array of text and index of the next location 
+ * to be used for each button in the game), and a cateogry indicating the type of quote that should be fetched at that locaiton. 
+ */
 const textNotes = [
     {
         id: 1,

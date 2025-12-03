@@ -1,6 +1,8 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
+// This component surrounds the Questions component and ensures that users are only directed to that page after their 
+// account has been logged in and authenticated. 
 const ProtectedRoute = ({ children }) => {
   const { currentUser, loading } = useAuth();
 

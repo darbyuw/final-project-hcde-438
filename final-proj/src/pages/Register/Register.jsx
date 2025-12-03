@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/auth";
 import "./Register.css";
 
+// Returns the page that allows users to create a new account. Takes in user imput to create an account. 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

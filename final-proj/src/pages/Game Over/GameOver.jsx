@@ -6,12 +6,14 @@ import { useAuth } from "../../context/AuthContext";
 import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../services/firebase.js'; 
 
-
+// This page returns the Game Over content and resets the users progress in the game using Firestore. 
 const Gameover = () => {
     const { fishCount } = useContext(FishCountContext);
     const { currentUser } = useAuth();
 
-    // Reset firestore progress so that the game will reset at the beginning:
+    // This asyncronous funciton resets firestore progress so that the game will reset at the beginning. Otherwise, the 
+    // game with fetch the users previous progress, so when the restart button is pressed, the user will return to their final 
+    // location in the game and be in an endless loop. 
     const resetProgress = async () => {
         try {
             const progressRef = doc(db, 'users', currentUser.uid, 'progress', String(1));

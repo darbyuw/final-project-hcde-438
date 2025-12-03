@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/auth";
 import "./Login.css";
 
+// Logs in the user by taking in user input. Returns the log in page with imput forms. 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
