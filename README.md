@@ -4,6 +4,7 @@ By Darby Moore
 ## Project overview and purpose
 A demo of this project can be viewed at the following link: https://youtu.be/3rBzP3r16Vc <br>
 The current version of this game can be played at the following link: https://final-project-hcde-438-2f1f6.web.app/ <br>
+<br>
 This web application is an Interactive Choose Your Own Adventure game. It follows the journey of a cat as it searches for fish in its neighborhood. The user plays the game from the perspective of the cat. This game aims to provide joy and entertainment to people of any age. Users are able to select between multiple options at each page of the game, leading them through different questions and scenarios. The game ends when the user has found four fish, or the cat has gotten distracted in some way. There are multiple different endings depending on the path that the user chooses.
 
 ## Technologies used
@@ -33,7 +34,8 @@ In the future, the game would benefit from including more locaitons in the textN
 ## AI use statement (even if no AI was used). Include the prompts you used and the help you received
 I used the following prompt in ChatGPT: “Why do i get this error when trying to use the Zen Quotes API: Access to fetch at 'https://zenquotes.io/api/quotes/' from origin 'http://localhost:5173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.” Based on this I received information that I needed to add a header to the API request, after trying this, I still received the same error. So I revisited the API documentation and saw that there were certain features locked behind a paywall, including the ability to filter quotes based on keywords. I searched on Google for free quote APIs and found the API Ninja Quote API. <br>
 I struggled with fixing a CSS bug and used the following prompt in ChatGPT: "i am making a web app with react jsx and when i shrink the width to below 550px the background color shrinks very fast and it reveals a white background. it is as if the container holding all the content is not takign up the entire width. what are some possible fixes?" Based on this I recived information that this code chunk: <br>
-```html, body {
+```
+html, body {
   width: 100%;
   overflow-x: hidden;
 } 
